@@ -1,71 +1,78 @@
 <!doctype html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>My-schedule</title>
+    <title>Weekly Schedule</title>
     <link rel="stylesheet" href="style.css">
-    <script>try{var t=localStorage.getItem('lifeScheduleTheme');document.documentElement.dataset.theme=(t==='dark'||t==='light')?t:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='light'}</script>
+    <script>try{var t=localStorage.getItem('lifeScheduleTheme');document.documentElement.dataset.theme=(t==='dark'||t==='light')?t:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='dark'}</script>
 </head>
 <body>
     <header>
         <div class="wrap header-inner">
-            <div>
-                <h1>ตารางชีวิตประจำสัปดาห์</h1>
-                <p>แก้ไขเวลาและกิจกรรมได้เอง · บันทึกอัตโนมัติในเบราว์เซอร์นี้</p>
+            <div class="header-text">
+                <h1 data-i18n="heading">Weekly Schedule</h1>
+                <p data-i18n="subtitle">Edit times and activities freely &middot; Auto-saved in this browser</p>
             </div>
-            <button class="btn theme-toggle" id="themeToggle" type="button" aria-label="สลับเป็นโหมดมืด" title="สลับเป็นโหมดมืด" aria-pressed="false">
-                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-            </button>
+            <div class="header-actions">
+                <button class="btn lang-toggle" id="langToggle" type="button" title="Switch language (EN / TH)" aria-label="Switch language (EN / TH)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
+                    <span id="langLabel">EN</span>
+                </button>
+                <button class="btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme" aria-pressed="false">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                </button>
+            </div>
         </div>
     </header>
-    
+
     <main class="main">
         <div class="toolbar">
-            <button class="btn primary" id="add">＋ เพิ่มกิจกรรม</button>
-            <button class="btn" id="csv">ส่งออก CSV</button>
-            <button class="btn" id="json">ดาวน์โหลด JSON</button>
-            <label class="btn" for="file">นำเข้า JSON</label>
+            <button class="btn primary" id="add" data-i18n="addActivity">&plus; Add activity</button>
+            <button class="btn" id="csv" data-i18n="exportCsv">Export CSV</button>
+            <button class="btn" id="json" data-i18n="downloadJson">Download JSON</button>
+            <label class="btn" for="file" data-i18n="importJson">Import JSON</label>
             <input id="file" type="file" accept=".json,application/json" hidden>
-            <button class="btn" id="reset">คืนค่าตารางเริ่มต้น</button>
+            <button class="btn" id="clear" data-i18n="clear">Clear</button>
         </div>
-        
+
         <section class="panel cat-panel">
             <div class="head">
-                <h2>หมวดหมู่ไฮไลต์</h2>
-                <button class="btn" id="addCat" type="button">＋ เพิ่มหมวดหมู่</button>
+                <h2 data-i18n="catTitle">Highlight categories</h2>
+                <button class="btn" id="addCat" type="button" data-i18n="addCategory">&plus; Add category</button>
             </div>
-            <p class="small">กำหนดชื่อและสีของไฮไลต์เอง แล้วเลือกใช้กับแต่ละกิจกรรมได้</p>
+            <p class="small" data-i18n="catHelp">Define your own highlight names and colors, then apply them to each activity.</p>
             <div class="cat-list" id="catList"></div>
         </section>
-        
+
         <div class="tabs" id="tabs"></div>
-        
+
         <section class="panel">
             <div class="head">
-                <h2 id="dayTitle">วันจันทร์</h2>
-                <button class="btn" id="addRow">＋ เพิ่มช่วงเวลา</button>
+                <h2 id="dayTitle">Monday</h2>
+                <button class="btn" id="addRow" data-i18n="addRow">&plus; Add time slot</button>
             </div>
-            <p class="small">คลิกช่องเวลาและกิจกรรมเพื่อแก้ไข ลบกิจกรรมได้ด้วยปุ่ม ×</p>
+            <p class="small" data-i18n="editorHelp">Click a time or activity field to edit. Remove activities with the &times; button.</p>
             <div class="items" id="editor"></div>
         </section>
-        
+
         <section class="panel">
             <div class="head">
-                <h2>ภาพรวมทั้งสัปดาห์</h2>
-                <button class="btn" id="toggle">ซ่อน/แสดง</button>
+                <h2 data-i18n="overviewTitle">Weekly overview</h2>
+                <button class="btn" id="toggle" data-i18n="showHide">Show / Hide</button>
             </div>
-            <p class="small">เลื่อนแนวนอนเพื่อดูทุกวัน</p>
+            <p class="small" data-i18n="overviewHelp">Scroll horizontally to see every day.</p>
             <div class="tablewrap" id="overview"></div>
         </section>
     </main>
-    
+
+    <footer>
+        <div class="wrap footer-inner">
+            <p>Created by Natathaphon Panyasarn &copy; <span id="currentYear"></span>. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
-<footer>
-    <div class="wrap footer-inner">
-        <p>Created by Natathaphon Panyasarn &copy; <span id="currentYear"></span>. All rights reserved.</p>
-    </div>
-</footer>
 </html>

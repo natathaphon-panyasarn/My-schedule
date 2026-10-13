@@ -1,33 +1,41 @@
 :root {
-    /* Deep space (dark) — primary theme */
-    --bg: #05060f;
-    --bg-top: #070a1e;
-    --bg-bottom: #05060f;
-    --panel: rgba(18, 22, 46, 0.55);
-    --panel-border: rgba(150, 170, 255, 0.16);
-    --btn-bg: rgba(255, 255, 255, 0.05);
-    --input-bg: rgba(8, 11, 26, 0.6);
-    --thead-bg: rgba(10, 14, 34, 0.92);
-    --sticky-bg: rgba(10, 14, 34, 0.92);
-    --popover-bg: rgba(13, 17, 40, 0.94);
-    --ink: #e8eefc;
-    --muted: #9aa6cc;
-    --faint: #6a74a0;
-    --line: rgba(150, 170, 255, 0.14);
-    --line-soft: rgba(150, 170, 255, 0.09);
-    --line-strong: rgba(150, 170, 255, 0.32);
-    --accent: #7c5cff;
+    /* ===== Deep space (dark) — default theme ===== */
+    --bg: #000000;
+    --bg-top: #000000;
+    --bg-bottom: #000000;
+    --panel: rgba(10, 8, 24, 0.55);
+    --panel-border: rgba(150, 125, 255, 0.16);
+    --btn-bg: rgba(255, 255, 255, 0.045);
+    --input-bg: rgba(3, 2, 10, 0.66);
+    --thead-bg: rgba(5, 3, 15, 0.94);
+    --sticky-bg: rgba(5, 3, 15, 0.94);
+    --popover-bg: rgba(7, 4, 20, 0.96);
+    --ink: #ece7ff;
+    --muted: #9d93c8;
+    --faint: #6a6294;
+    --line: rgba(150, 125, 255, 0.14);
+    --line-soft: rgba(150, 125, 255, 0.08);
+    --line-strong: rgba(150, 125, 255, 0.34);
+    --accent: #8b5cff;
     --accent-2: #22d3ee;
     --accent-3: #ffd479;
     --accent-ink: #ffffff;
-    --header-bg1: rgba(10, 14, 34, 0.85);
-    --header-bg2: rgba(10, 14, 34, 0.35);
+    --header-bg1: rgba(5, 3, 15, 0.82);
+    --header-bg2: rgba(5, 3, 15, 0.25);
     --danger: #ff8a8a;
     --danger-bg: rgba(255, 138, 138, 0.12);
-    --scroll-thumb: rgba(150, 170, 255, 0.3);
-    --scroll-thumb-hover: rgba(150, 170, 255, 0.5);
-    --glow-primary: 0 0 24px -6px rgba(124, 92, 255, 0.8);
+    --scroll-thumb: rgba(150, 125, 255, 0.3);
+    --scroll-thumb-hover: rgba(150, 125, 255, 0.52);
+    --glow-primary: 0 0 26px -6px rgba(139, 92, 255, 0.9);
     --glow-cyan: 0 0 18px -4px rgba(34, 211, 238, 0.6);
+    /* nebula / star field */
+    --nebula-1: rgba(88, 28, 220, 0.38);
+    --nebula-2: rgba(10, 32, 130, 0.36);
+    --nebula-3: rgba(150, 60, 255, 0.22);
+    --nebula-opacity: 0.75;
+    --star: rgba(255, 255, 255, 0.95);
+    --star-2: rgba(180, 210, 255, 0.85);
+    --star-opacity: 0.9;
     --radius: 12px;
     --radius-sm: 10px;
     --sp-1: 4px;
@@ -39,36 +47,44 @@
     --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Day-sky (light) variant */
+/* ===== Daytime sky (light) variant ===== */
 [data-theme="light"] {
-    --bg: #eef2fb;
-    --bg-top: #e6ecfb;
-    --bg-bottom: #eef2fb;
-    --panel: rgba(255, 255, 255, 0.7);
-    --panel-border: rgba(90, 100, 170, 0.18);
-    --btn-bg: rgba(255, 255, 255, 0.65);
-    --input-bg: rgba(255, 255, 255, 0.85);
-    --thead-bg: rgba(255, 255, 255, 0.9);
-    --sticky-bg: rgba(255, 255, 255, 0.92);
-    --popover-bg: rgba(255, 255, 255, 0.96);
-    --ink: #1b2140;
-    --muted: #5b6488;
-    --faint: #8a92b4;
-    --line: rgba(80, 90, 160, 0.16);
-    --line-soft: rgba(80, 90, 160, 0.1);
-    --line-strong: rgba(80, 90, 160, 0.34);
-    --accent: #6d4aff;
-    --accent-2: #0ea5e9;
-    --accent-3: #d99a2b;
+    --bg: #eaf4ff;
+    --bg-top: #d3e9ff;
+    --bg-bottom: #f6fbff;
+    --panel: rgba(255, 255, 255, 0.72);
+    --panel-border: rgba(90, 140, 205, 0.2);
+    --btn-bg: rgba(255, 255, 255, 0.72);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --thead-bg: rgba(255, 255, 255, 0.93);
+    --sticky-bg: rgba(255, 255, 255, 0.95);
+    --popover-bg: rgba(255, 255, 255, 0.97);
+    --ink: #123057;
+    --muted: #4a6a95;
+    --faint: #7d95b8;
+    --line: rgba(90, 140, 205, 0.18);
+    --line-soft: rgba(90, 140, 205, 0.11);
+    --line-strong: rgba(90, 140, 205, 0.38);
+    --accent: #4f7cff;
+    --accent-2: #02b5e8;
+    --accent-3: #f0a92b;
     --accent-ink: #ffffff;
-    --header-bg1: rgba(255, 255, 255, 0.8);
+    --header-bg1: rgba(255, 255, 255, 0.84);
     --header-bg2: rgba(255, 255, 255, 0.35);
     --danger: #d94a4a;
     --danger-bg: rgba(217, 74, 74, 0.1);
-    --scroll-thumb: rgba(80, 90, 160, 0.28);
-    --scroll-thumb-hover: rgba(80, 90, 160, 0.5);
-    --glow-primary: 0 0 22px -6px rgba(109, 74, 255, 0.45);
-    --glow-cyan: 0 0 18px -4px rgba(14, 165, 233, 0.45);
+    --scroll-thumb: rgba(90, 140, 205, 0.3);
+    --scroll-thumb-hover: rgba(90, 140, 205, 0.52);
+    --glow-primary: 0 0 22px -6px rgba(79, 124, 255, 0.5);
+    --glow-cyan: 0 0 18px -4px rgba(2, 181, 232, 0.45);
+    /* airy clouds */
+    --nebula-1: rgba(150, 205, 255, 0.7);
+    --nebula-2: rgba(255, 255, 255, 0.95);
+    --nebula-3: rgba(190, 225, 255, 0.65);
+    --nebula-opacity: 0.85;
+    --star: rgba(120, 170, 230, 0.5);
+    --star-2: rgba(90, 140, 205, 0.42);
+    --star-opacity: 0.16;
 }
 
 * {
@@ -83,11 +99,8 @@ body {
     margin: 0;
     min-height: 100vh;
     color: var(--ink);
-    background:
-        radial-gradient(circle at 12% 8%, rgba(124, 92, 255, 0.22), transparent 46%),
-        radial-gradient(circle at 88% -4%, rgba(34, 211, 238, 0.14), transparent 42%),
-        radial-gradient(circle at 40% 110%, rgba(255, 212, 121, 0.08), transparent 50%),
-        linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
     background-attachment: fixed;
     font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Noto Sans", sans-serif;
     font-size: 15px;
@@ -98,7 +111,7 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-/* Star field */
+/* ---------- Sky layers ---------- */
 body::before,
 body::after {
     content: "";
@@ -106,55 +119,48 @@ body::after {
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background-repeat: repeat;
 }
 
+/* Star field (faint dust by day, bright stars by night) */
 body::before {
     background-image:
-        radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.9), transparent 60%),
-        radial-gradient(1px 1px at 75% 15%, rgba(180, 220, 255, 0.8), transparent 60%),
-        radial-gradient(1.5px 1.5px at 40% 70%, rgba(255, 255, 255, 0.7), transparent 60%),
-        radial-gradient(1px 1px at 85% 65%, rgba(255, 255, 255, 0.6), transparent 60%),
-        radial-gradient(1px 1px at 10% 85%, rgba(200, 230, 255, 0.7), transparent 60%),
-        radial-gradient(1.5px 1.5px at 60% 45%, rgba(255, 255, 255, 0.5), transparent 60%),
-        radial-gradient(1px 1px at 33% 12%, rgba(255, 236, 180, 0.7), transparent 60%),
-        radial-gradient(1px 1px at 92% 40%, rgba(255, 255, 255, 0.55), transparent 60%);
+        radial-gradient(1px 1px at 20% 30%, var(--star), transparent 60%),
+        radial-gradient(1px 1px at 75% 15%, var(--star-2), transparent 60%),
+        radial-gradient(1.5px 1.5px at 40% 70%, var(--star), transparent 60%),
+        radial-gradient(1px 1px at 85% 65%, var(--star), transparent 60%),
+        radial-gradient(1px 1px at 10% 85%, var(--star-2), transparent 60%),
+        radial-gradient(1.5px 1.5px at 60% 45%, var(--star), transparent 60%),
+        radial-gradient(1px 1px at 33% 12%, var(--star), transparent 60%),
+        radial-gradient(1px 1px at 92% 40%, var(--star-2), transparent 60%);
     background-size: 260px 260px;
-    opacity: 0.8;
+    opacity: var(--star-opacity);
     animation: twinkle 7s ease-in-out infinite;
 }
 
-[data-theme="light"] body::before {
-    background-image:
-        radial-gradient(1px 1px at 20% 30%, rgba(30, 60, 140, 0.4), transparent 60%),
-        radial-gradient(1px 1px at 75% 15%, rgba(60, 90, 200, 0.35), transparent 60%),
-        radial-gradient(1.5px 1.5px at 40% 70%, rgba(50, 70, 160, 0.3), transparent 60%),
-        radial-gradient(1px 1px at 85% 65%, rgba(40, 70, 160, 0.28), transparent 60%),
-        radial-gradient(1px 1px at 10% 85%, rgba(60, 90, 200, 0.3), transparent 60%);
-    background-size: 260px 260px;
-    opacity: 0.5;
-}
-
+/* Nebula / cloud glow */
 body::after {
     background-image:
-        radial-gradient(2px 2px at 15% 55%, rgba(124, 92, 255, 0.5), transparent 60%),
-        radial-gradient(2px 2px at 80% 80%, rgba(34, 211, 238, 0.45), transparent 60%),
-        radial-gradient(2px 2px at 50% 25%, rgba(255, 212, 121, 0.4), transparent 60%);
-    background-size: 420px 420px;
-    opacity: 0.6;
-    animation: twinkle 9s ease-in-out infinite reverse;
+        radial-gradient(46% 34% at 15% 12%, var(--nebula-1), transparent 70%),
+        radial-gradient(52% 38% at 88% 72%, var(--nebula-3), transparent 72%),
+        radial-gradient(60% 42% at 50% 108%, var(--nebula-2), transparent 76%);
+    opacity: var(--nebula-opacity);
+    animation: drift 26s ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.95; }
+    0%, 100% { opacity: calc(var(--star-opacity) * 0.55); }
+    50% { opacity: var(--star-opacity); }
+}
+
+@keyframes drift {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(0, -1.5%, 0) scale(1.06); }
 }
 
 @media (prefers-reduced-motion: reduce) {
     body::before,
     body::after {
         animation: none;
-        opacity: 0.6;
     }
 }
 
@@ -187,15 +193,21 @@ header {
     position: relative;
 }
 
-.header-inner h1,
-.header-inner p {
-    padding-right: 3rem;
+.header-text h1,
+.header-text p {
+    padding-right: 7.5rem;
 }
 
-.theme-toggle {
+.header-actions {
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    gap: var(--sp-2);
+    align-items: center;
+}
+
+.theme-toggle {
     width: 42px;
     height: 42px;
     padding: 0;
@@ -221,25 +233,43 @@ header {
     display: block;
 }
 
+.lang-toggle {
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 999px;
+    font-weight: 650;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    gap: 7px;
+    background: var(--btn-bg);
+}
+
+.lang-toggle svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    opacity: 0.85;
+}
+
 h1 {
     margin: 0;
     font-size: clamp(1.45rem, 3.4vw, 2rem);
     line-height: 1.15;
     letter-spacing: -0.025em;
     font-weight: 650;
-    background: linear-gradient(92deg, #ffffff 0%, #b9c9ff 55%, #7fe9ff 100%);
+    background: linear-gradient(92deg, #ffffff 0%, #c3b0ff 55%, #7fe9ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 18px rgba(124, 180, 255, 0.28));
+    filter: drop-shadow(0 0 20px rgba(139, 92, 255, 0.35));
 }
 
 [data-theme="light"] h1 {
-    background: linear-gradient(92deg, #241a6b, #5b3fd6 55%, #0ea5e9);
+    background: linear-gradient(92deg, #0b3a72, #2f7fd6 55%, #38c6e8);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 2px 10px rgba(109, 74, 255, 0.25));
+    filter: drop-shadow(0 2px 10px rgba(47, 127, 214, 0.28));
 }
 
 header p {
@@ -263,10 +293,16 @@ header p {
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     box-shadow:
-        0 24px 60px -40px rgba(0, 0, 0, 0.85),
-        0 0 60px -30px rgba(124, 92, 255, 0.45);
+        0 24px 60px -40px rgba(0, 0, 0, 0.9),
+        0 0 70px -34px rgba(139, 92, 255, 0.5);
     padding: clamp(18px, 2.6vw, 26px);
     margin-bottom: var(--sp-5);
+}
+
+[data-theme="light"] .panel {
+    box-shadow:
+        0 24px 60px -44px rgba(20, 60, 120, 0.45),
+        0 0 70px -40px rgba(79, 124, 255, 0.35);
 }
 
 /* ---------- Flex rows ---------- */
@@ -354,6 +390,10 @@ input:focus {
     outline: none;
     border-color: var(--accent-2);
     box-shadow: var(--glow-cyan);
+}
+
+input::placeholder {
+    color: var(--faint);
 }
 
 /* ---------- Day tabs ---------- */
@@ -530,7 +570,7 @@ input:focus {
     border-radius: 12px;
     backdrop-filter: blur(16px) saturate(140%);
     -webkit-backdrop-filter: blur(16px) saturate(140%);
-    box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.85), 0 0 40px -20px rgba(124, 92, 255, 0.55);
+    box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.9), 0 0 40px -20px rgba(139, 92, 255, 0.6);
 }
 
 .cat-opt {
@@ -701,6 +741,11 @@ tbody tr:hover td.has-cat {
         font-size: 14px;
     }
 
+    .header-text h1,
+    .header-text p {
+        padding-right: 6.5rem;
+    }
+
     .item {
         grid-template-columns: 104px minmax(0, 1fr) 40px 40px;
         gap: 6px;
@@ -714,6 +759,17 @@ tbody tr:hover td.has-cat {
 }
 
 @media (max-width: 560px) {
+    .header-actions {
+        position: static;
+        margin-top: var(--sp-4);
+        justify-content: flex-start;
+    }
+
+    .header-text h1,
+    .header-text p {
+        padding-right: 0;
+    }
+
     .toolbar .btn {
         flex: 1 1 calc(50% - var(--sp-2));
     }
@@ -762,6 +818,8 @@ tbody tr:hover td.has-cat {
 }
 
 footer {
+    position: relative;
+    z-index: 1;
     text-align: center;
     padding: var(--sp-5) var(--sp-4);
     margin-top: var(--sp-6);
