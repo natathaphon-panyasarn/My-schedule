@@ -10,7 +10,6 @@ const I18N = {
         themeToLight: 'Switch to light mode',
         themeToDark: 'Switch to dark mode',
         langToggleTitle: 'Switch language (EN / TH)',
-        importCsvFile: '+ Import CSV',
         exportCsv: 'Export CSV',
         downloadJson: 'Download JSON',
         importJson: 'Import JSON',
@@ -41,8 +40,6 @@ const I18N = {
         confirmClear: 'Are you sure you want to clear all data?',
         jsonReadError: 'Could not read the JSON file.',
         jsonInvalid: 'Invalid JSON file.',
-        csvReadError: 'Could not read the CSV file.',
-        csvInvalid: 'Invalid CSV format.',
         noCatsPopover: 'No categories yet — add one above',
         csvFile: 'weekly-schedule.csv',
         csvDay: 'Day',
@@ -60,7 +57,6 @@ const I18N = {
         themeToLight: 'สลับเป็นโหมดสว่าง',
         themeToDark: 'สลับเป็นโหมดมืด',
         langToggleTitle: 'สลับภาษา (EN / TH)',
-        importCsvFile: '+ เพิ่มไฟล์ CSV',
         exportCsv: 'ส่งออก CSV',
         downloadJson: 'ดาวน์โหลด JSON',
         importJson: 'นำเข้า JSON',
@@ -91,8 +87,6 @@ const I18N = {
         confirmClear: 'คุณแน่ใจหรือไม่ว่าต้องการเคลียร์ข้อมูลทั้งหมด?',
         jsonReadError: 'อ่านไฟล์ JSON ไม่ได้',
         jsonInvalid: 'ไฟล์ JSON ไม่ถูกต้อง',
-        csvReadError: 'อ่านไฟล์ CSV ไม่ได้',
-        csvInvalid: 'รูปแบบไฟล์ CSV ไม่ถูกต้อง',
         noCatsPopover: 'ยังไม่มีหมวดหมู่ — เพิ่มได้ด้านบน',
         csvFile: 'ตารางชีวิตประจำสัปดาห์.csv',
         csvDay: 'วัน',
@@ -241,46 +235,6 @@ $('csv').onclick = () => {
 $('json').onclick = () => {
     let blob = new Blob([JSON.stringify({ categories, ...data }, null, 2)], { type: 'application/json' });
     let a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'life-schedule.json'; a.click();
-};
-
-/* --- Import CSV Feature --- */
-$('csvFile').onchange = e => {
-    let f = e.target.files[0];
-    if (!f) return;
-    let fr = new FileReader();
-    fr.onload = event => {
-        try {
-            let text = event.target.result;
-            let lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
-            if (lines.length < 2) { alert(t('csvInvalid')); return; }
-            let newData = blankDays();
-            // Assuming format: Day,Time,Activity,Category
-            for (let i = 1; i < lines.length; i++) {
-                let row = lines[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || lines[i].split(',');
-                if (row.length >= 3) {
-                    let day = row[0].replace(/"/g, '').trim();
-                    let time = row[1].replace(/"/g, '').trim();
-                    let activity = row[2].replace(/"/g, '').trim();
-                    // Match day key
-                    let matchedKey = DAY_KEYS.find(k => k === day || I18N.en.days[k].toLowerCase() === day.toLowerCase());
-                    if (matchedKey) {
-                        // If default rows exist, clear them on first CSV insertion per day
-                        if (newData[matchedKey].length === 3 && newData[matchedKey][0][1] === '') {
-                            newData[matchedKey] = [];
-                        }
-                        newData[matchedKey].push([time, activity, '']);
-                    }
-                }
-            }
-            data = newData;
-            persist();
-            render();
-            $('csvFile').value = '';
-        } catch (err) {
-            alert(t('csvReadError'));
-        }
-    };
-    fr.readAsText(f);
 };
 
 $('file').onchange = e => {

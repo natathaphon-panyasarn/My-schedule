@@ -25,7 +25,6 @@
     --danger-bg: rgba(255, 138, 138, 0.12);
     --scroll-thumb: rgba(150, 125, 255, 0.3);
     --scroll-thumb-hover: rgba(150, 125, 255, 0.52);
-    --glow-primary: 0 0 26px -6px rgba(139, 92, 255, 0.9);
     --glow-cyan: 0 0 18px -4px rgba(34, 211, 238, 0.6);
     --nebula-1: rgba(88, 28, 220, 0.38);
     --nebula-2: rgba(10, 32, 130, 0.36);
@@ -72,7 +71,6 @@
     --danger-bg: rgba(217, 74, 74, 0.1);
     --scroll-thumb: rgba(90, 140, 205, 0.3);
     --scroll-thumb-hover: rgba(90, 140, 205, 0.52);
-    --glow-primary: 0 0 22px -6px rgba(79, 124, 255, 0.5);
     --glow-cyan: 0 0 18px -4px rgba(2, 181, 232, 0.45);
     --nebula-1: rgba(150, 205, 255, 0.7);
     --nebula-2: rgba(255, 255, 255, 0.95);
@@ -212,12 +210,6 @@ header p { color: var(--muted); margin: var(--sp-1) 0 0; font-size: 0.9rem; }
 }
 input[type="file"], input[hidden] { display: none; }
 .btn:hover { border-color: var(--accent-2); box-shadow: var(--glow-cyan); }
-.btn.primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: var(--accent-ink);
-    border-color: transparent;
-    box-shadow: var(--glow-primary);
-}
 
 .tabs { margin-bottom: var(--sp-5); gap: 6px; }
 .tab { padding: 8px 15px; color: var(--muted); border-radius: 999px; }
