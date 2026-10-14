@@ -28,14 +28,6 @@
     </header>
 
     <main class="main">
-        <div class="toolbar">
-            <button class="btn" id="csv" data-i18n="exportCsv">Export CSV</button>
-            <button class="btn" id="json" data-i18n="downloadJson">Download JSON</button>
-            <label class="btn" for="file" data-i18n="importJson">Import JSON</label>
-            <input id="file" type="file" accept=".json,application/json" hidden>
-            <button class="btn" id="clear" data-i18n="clear">Clear</button>
-        </div>
-
         <section class="panel cat-panel">
             <div class="head">
                 <h2 data-i18n="catTitle">Highlight categories</h2>
@@ -50,7 +42,10 @@
         <section class="panel">
             <div class="head">
                 <h2 id="dayTitle">Monday</h2>
-                <button class="btn" id="addRow" data-i18n="addRow">&plus; Add time slot</button>
+                <div class="head-actions">
+                    <button class="btn btn-danger" id="clear" data-i18n="clear">Clear</button>
+                    <button class="btn" id="addRow" data-i18n="addRow">&plus; Add time slot</button>
+                </div>
             </div>
             <p class="small" data-i18n="editorHelp">Click a time or activity field to edit. Remove activities with the &times; button.</p>
             <div class="items" id="editor"></div>
